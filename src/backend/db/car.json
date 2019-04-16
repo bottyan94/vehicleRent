@@ -1,0 +1,62 @@
+[
+  {
+    "index": 0,
+    "carMan": "Fiat",
+    "carType": "500",
+    "plateNumber":"ASD-123",
+    "km": "75353",
+    "yearOfManufacture": "2017",
+    "pricePerDay":"4000",
+    "pricePerKm":"45",
+    "registered": "Wednesday, November 28, 2018 12:24 AM",
+    "status":"False"
+  },
+  {
+    "index": 1,
+    "carMan": "Suzuki",
+    "carType": "Vitara",
+    "plateNumber":"ASD-123",
+    "km": "180847",
+    "yearOfManufacture": "2019",
+    "pricePerDay":"5000",
+    "pricePerKm":"55",
+    "registered": "Friday, August 31, 2018 7:03 AM",
+    "status":"False"
+  },
+  {
+    "index": 2,
+    "carMan": "Renault",
+    "carType": "Megane",
+    "plateNumber":"RTZ-884",
+    "km": "181533",
+    "yearOfManufacture": "2015",
+    "pricePerDay":"4500",
+    "pricePerKm":"55",
+    "registered": "Saturday, April 22, 2017 12:10 AM",
+    "status":"False"
+  },
+  {
+    "index": 3,
+    "carMan": "Honda",
+    "carType": "Accord",
+    "plateNumber":"HON-344",
+    "km": "98346",
+    "yearOfManufacture": "2017",
+    "pricePerDay":"5500",
+    "pricePerKm":"55",
+    "registered": "Saturday, February 18, 2017 1:48 PM",
+    "status":"False"
+  },
+  {
+    "index": 4,
+    "carMan": "Ford",
+    "carType": "Mondeo",
+    "plateNumber":"FOR-589",
+    "km": "23575",
+    "yearOfManufacture": "2017",
+    "pricePerDay":"5000",
+    "pricePerKm":"50",
+    "registered": "Monday, October 16, 2017 7:04 AM",
+    "status":"False"
+  }
+]
