@@ -32,3 +32,23 @@ export async function register(data) {
     client.close();
   });
 }
+
+export async function rent(data) {
+  const client = new MongoClient(url);
+  db = await client.connect(async () => {
+    console.log('connected to db');
+    db = client.db(dbName);
+    db.collection(collectionName).updateOne({ index : data.rent.index }, {$set: {status: 'True'}});
+    client.close();
+  });
+}
+export async function update(data) {
+  const client = new MongoClient(url);
+  db = await client.connect(async () => {
+    console.log('connected to db');
+    db = client.db(dbName);
+    db.collection(collectionName).updateOne({ index : data.index }, {$set: {status: 'False'}});
+    client.close();
+  });
+}
+

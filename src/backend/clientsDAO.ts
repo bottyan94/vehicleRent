@@ -38,7 +38,16 @@ export async function deleteClients(data) {
   db = await client.connect(() => {
     console.log('connected to db');
     db = client.db(dbName);
-    db.collection(collectionName).remove( { _id : data._id } )
+    db.collection(collectionName).remove( { id : data.id } );
+    client.close();
+  });
+}
+export async function rent(data) {
+  const client = new MongoClient(url);
+  db = await client.connect(() => {
+    console.log('connected to db');
+    db = client.db(dbName);
+    db.collection(collectionName).updateOne({ id : data.id }, {$set: data});
     client.close();
   });
 }

@@ -12,7 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'clients', component: ClientsComponent},
-  {path: '', redirectTo: '/clients', pathMatch: 'full'}];
+  {path: '', redirectTo: '/clients', pathMatch: 'full'},
+  {path: 'vehicle/list', component: ClientsComponent}
+];
 
 
 @NgModule({

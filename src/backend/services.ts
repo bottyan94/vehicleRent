@@ -11,12 +11,20 @@ export function registerClients(data) {
 export function deleteClients(data) {
   clientsDAO.deleteClients(data);
 }
-
+export async function rent(data) {
+  clientsDAO.rent(data);
+  vehicleDAO.rent(data);
+}
 /*VEHICLES*/
 export async function listAllVehicles(data) {
   return(await vehicleDAO.readAll(data));
 }
 export function registerVehicles(data) {
-  clientsDAO.register(data);
+  vehicleDAO.register(data);
 }
+export function update(data) {
+  vehicleDAO.update(data);
+}
+
+
 
