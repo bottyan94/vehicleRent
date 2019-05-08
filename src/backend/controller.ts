@@ -19,7 +19,10 @@ router.post('/clients/delete', (req, res) => {
 router.post('/clients/rent', (req, res) => {
   srs.rent(req.body);
   res.status(200).send('Client and Car status updated.');
-
+});
+router.post('/clients/endRent', (req, res) => {
+  srs.endRent(req.body);
+  res.status(200).send('Client and Car status updated.');
 });
 
 
@@ -31,9 +34,6 @@ router.post('/vehicle/reg', (req, res) => {
   srs.registerVehicles(req.body);
   res.status(200).send('Vehicle registrated.');
 });
-router.post('/vehicle/update', (req, res) => {
-  srs.update(req.body);
-  res.status(200).send('Vehicle updated.');
-});
+
 
 module.exports = router;

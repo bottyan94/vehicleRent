@@ -1,30 +1,31 @@
-import * as clientsDAO from './clientsDAO';
-import * as vehicleDAO from './vehicleDAO';
+import * as dao from './dao';
 
 /*CLIENTS*/
 export async function listAllUsers(data) {
-  return(await clientsDAO.readAll(data));
+  return(await dao.readAll('clients', data));
 }
 export function registerClients(data) {
-  clientsDAO.register(data);
+  dao.register('clients', data);
 }
 export function deleteClients(data) {
-  clientsDAO.deleteClients(data);
+  dao.deleteClients('clients', data);
 }
 export async function rent(data) {
-  clientsDAO.rent(data);
-  vehicleDAO.rent(data);
+  console.log(data);
+  dao.rent('clients', 'vehicle', data);
+}
+export async function endRent(data) {
+  console.log(data);
+  dao.endRent('clients', 'vehicle', data);
 }
 /*VEHICLES*/
 export async function listAllVehicles(data) {
-  return(await vehicleDAO.readAll(data));
+  return(await dao.readAll('vehicle', data));
 }
 export function registerVehicles(data) {
-  vehicleDAO.register(data);
+  dao.register('vehicle', data);
 }
-export function update(data) {
-  vehicleDAO.update(data);
-}
+
 
 
 

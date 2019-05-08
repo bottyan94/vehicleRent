@@ -3,7 +3,7 @@ import {MongoClient, Db} from 'mongodb';
 // Connection URL
 const url = 'mongodb://localhost:27017';
 // Database Name
-const dbName = 'vehicleRent';
+const dbName = 'angular';
 const collectionName = 'vehicle';
 let db: Db;
 
@@ -34,11 +34,12 @@ export async function register(data) {
 }
 
 export async function rent(data) {
+  console.log('vehicle rented' + data.vehicleID);
   const client = new MongoClient(url);
   db = await client.connect(async () => {
     console.log('connected to db');
     db = client.db(dbName);
-    db.collection(collectionName).updateOne({ index : data.rent.index }, {$set: {status: 'True'}});
+    db.collection(collectionName).updateOne({ index : 'data.vehicleID'}, {$set: {status: 'Rented'}});
     client.close();
   });
 }
@@ -47,7 +48,7 @@ export async function update(data) {
   db = await client.connect(async () => {
     console.log('connected to db');
     db = client.db(dbName);
-    db.collection(collectionName).updateOne({ index : data.index }, {$set: {status: 'False'}});
+    db.collection(collectionName).updateOne({ index : data.index }, {$set: {status: 'Free'}});
     client.close();
   });
 }

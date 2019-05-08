@@ -1,12 +1,72 @@
+db.clients.insertMany([
 {
-  "index": 5,
-  "carMan": "Kawasaki",
-  "carType": "Jet-Ski",
-  "plateNumber":"",
-  "km": "120",
-  "yearOfManufacture": "2018",
-  "pricePerDay":"6000",
-  "pricePerKm":"40",
-  "registered": "Monday, October 16, 2017 7:04 AM",
-  "status":"False"
+    "id": 1,
+    "name": {
+      "first": "Bottyán",
+      "last": "Tamás"
+    },
+    "email": "bottyan94@gmail.com",
+    "phone": "+36308990872",
+    "address": "3780 Edelény Katona József út 74",
+    
+  },"id": 2,
+    "name": {
+      "first": "Gipsz",
+      "last": "Jakab"
+    },
+    "email": "asd@gmail.com",
+    "phone": "+1232133",
+    "address": "3700 Kazincbarcika Gorkij út 1",
+    
+  },"id": 3,
+    "name": {
+      "first": "Almási",
+      "last": "Lilla"
+    },
+    "email": "almalilla96@gmail.com",
+    "phone": "+0123456789",
+    "address": "1041 Budapest Erzsébet utca 33",
+    
+  },"id": 1,
+    "name": {
+      "first": "Pankucsi",
+      "last": "Máté"
+    },
+    "email": "pankucsi@gmail.com",
+    "phone": "+3213123123",
+    "address": "",
+  },
+ }]
+ db.vehicle.insertMany([
+{{}
+  "id":1,
+  "type":"Ford Focus",
+  "year":2004,
+  "km":10,
+  "fuel":"benzin",
+  "price":100,
+  "priceKm":10,
+  "status":"Free"
+},
+{
+  "id":2,
+  "type":"Fiat 500",
+  "year":2015,
+  "km":30,
+  "fuel":"benzin",
+  "price":120,
+  "priceKm":10,
+  "status":"Free"
+},{
+  "id":3,
+  "type":"Lexus IS300H",
+  "year":2016,
+  "km":10,
+  "fuel":"hybrid",
+  "price":120,
+  "priceKm":8,
+  "status":"Free"
 }
+
+}]
+
