@@ -3,21 +3,22 @@ import {MongoClient, Db} from 'mongodb';
 // Connection URL
 const url = 'mongodb://localhost:27017';
 // Database Name
-const dbName = 'angular';
+const dbName = 'vehicleRent';
 let db: Db;
 
-function read(collectionName, data) {
+function read(findParam, collectionName) {
   return new Promise(async resolve => {
     const client = new MongoClient(url);
     db = await client.connect(() => {
       db = client.db(dbName);
-      resolve(db.collection(collectionName).find(data).toArray());
+      resolve(db.collection(collectionName).find(findParam).toArray());
       client.close();
     });
   });
 }
 export async function readAll(collectionName, data) {
-  const resoult = await read(collectionName, data);
+  const resoult = await read(data, collectionName );
+  console.log(resoult[0]);
   return resoult;
 }
 export async function register(collectionName, data) {
@@ -32,7 +33,8 @@ export async function deleteClients(collectionName, data) {
   const client = new MongoClient(url);
   db = await client.connect(() => {
     db = client.db(dbName);
-    db.collection(collectionName).remove( { id : data.id } );
+    console.log(data)
+    db.collection(collectionName).remove(data} );
     client.close();
   });
 }
@@ -41,9 +43,10 @@ export async function rent(collectionName1, collectionName2, data) {
   const client = new MongoClient(url);
   db = await client.connect(() => {
     db = client.db(dbName);
-    db.collection(collectionName1).updateOne({ id : data.clientID }, {$push: {rents : data.orderID}});
-    db.collection(collectionName2).updateOne({ id : data.vehicleID}, {$set: {status: 'Rented'}});
-    db.collection('orders').insertOne(data);
+    console.log(collectionName2)
+    db.collection(collectionName1).updateOne({_id : data.clientID }, {$push: {rent : data.rentID}});
+    db.collection(collectionName2).updateOne({_id : data.vehicleID}, {$set: {status: 'Rented'}});
+    db.collection('rents').insertOne(data);
     client.close();
   });
 }
@@ -52,9 +55,10 @@ export async function endRent(collectionName1, collectionName2, data) {
   const client = new MongoClient(url);
   db = await client.connect(() => {
     db = client.db(dbName);
-    db.collection(collectionName1).updateOne({ id : data.clientID }, {$pull: {rents : data.orderID}});
-    db.collection(collectionName2).updateOne({ id : data.vehicleID}, {$set: {status: 'Free'}});
-    db.collection('orders').updateOne({ id : data.orderID}, {$set: {status: 'Done'}});
+    db.collection(collectionName1).updateOne({_id : data.clientID }, {$push: {rent : data.rentID}});
+    db.collection(collectionName2).updateOne({_id : data.vehicleID}, {$set: {status: 'Rented'}});
+    db.collection('rents').insertOne(data);
     client.close();
   });
 }
+

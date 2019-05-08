@@ -1,3 +1,4 @@
+/*
 import {MongoClient, Db} from 'mongodb';
 
 // Connection URL
@@ -16,3 +17,4 @@ export async function rent(data) {
     client.close();
   });
 }
+*/

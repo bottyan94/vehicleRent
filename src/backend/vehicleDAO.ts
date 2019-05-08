@@ -1,3 +1,4 @@
+/*
 import {MongoClient, Db} from 'mongodb';
 
 // Connection URL
@@ -53,3 +54,4 @@ export async function update(data) {
   });
 }
 
+*/

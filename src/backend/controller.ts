@@ -27,10 +27,10 @@ router.post('/clients/endRent', (req, res) => {
 
 
 /*VEHICLES*/
-router.get('/vehicle/list', async (req, res) => {
+router.get('/vehicles/list', async (req, res) => {
   res.status(200).send(await srs.listAllVehicles(req.query));
 });
-router.post('/vehicle/reg', (req, res) => {
+router.post('/vehicles/reg', (req, res) => {
   srs.registerVehicles(req.body);
   res.status(200).send('Vehicle registrated.');
 });
