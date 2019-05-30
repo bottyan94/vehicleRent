@@ -15,7 +15,7 @@ gulp.task('clean-backend', function (done) {
 });
 
 gulp.task('compile-backend', function (done) {
-  exec('tsc --sourcemap -p ./src/backend', function (err, stdout, stderr) {
+  exec('tsc --sourcemap -p ./backend', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     done();
@@ -32,7 +32,7 @@ gulp.task('restart-server', function (done) {
 gulp.task('build-backend-no-clean', gulp.series('compile-backend', 'restart-server'));
 
 gulp.task('watch-backend', function (done) {
-  gulp.watch(['!src/backend/db/**/*','src/backend/*.ts'], gulp.series('build-backend-no-clean'));
+  gulp.watch(['!./backend/db/**/*','./backend/*.ts'], gulp.series('build-backend-no-clean'));
   done();
 });
 
