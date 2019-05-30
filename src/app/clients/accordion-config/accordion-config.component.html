@@ -1,0 +1,14 @@
+<div class="container">
+<ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
+  <ngb-panel title="Clients" id="config-panel-one">
+    <ng-template ngbPanelContent>
+      <app-clients-table></app-clients-table>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Cars">
+    <ng-template ngbPanelContent>
+      <app-cars-table></app-cars-table>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+</div>

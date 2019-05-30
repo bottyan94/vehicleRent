@@ -1,0 +1,12 @@
+<table class="table table-bordered, table-striped">
+  <td>Name</td>
+  <td>Email</td>
+  <td>Phone</td>
+  <td>Address</td>
+  <tr (keypress)="entity.id" *ngFor="let entity of obj">
+    <td>{{entity.name.first}} {{entity.name.last}}</td>
+    <td>{{entity.email}}</td>
+    <td>{{entity.phone}}</td>
+    <td>{{entity.address}}</td>
+  </tr>
+</table>
