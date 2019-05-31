@@ -18,4 +18,10 @@ export class OrdersComponent implements OnInit {
       this.obj = data;
     });
   }
+  finish(entity) {
+    this.service.finishRent(entity).then((data) => {
+      console.log(data);
+      this.obj = data;
+    });
+  }
 }

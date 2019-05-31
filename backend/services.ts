@@ -2,20 +2,21 @@ import * as clientsDAO from './clientsDAO';
 import * as vehicleDAO from './vehicleDAO';
 import * as rentDAO from './rentDAO';
 
+
 export async function rent(data) {
   const v = await vehicleDAO.read({id: data.vehicleID});
   if (v[0].status !== 'Rented') {
     await clientsDAO.rent(data);
     await vehicleDAO.rent(data);
     await rentDAO.rent(data);
-    return ('Rent registered!');
-  } else { return ('this car is rented!'); }
+    return ({rent:'Rent registered!'});
+  } else { return ({rent:'this car is rented!'}); }
 }
 
 export async function finishRent(data) {
   await vehicleDAO.finishRent(data);
   await rentDAO.finishRent(data);
-  return ('Rent registered!');
+  return;
 }
 
 export async function listAllClients(data) {

@@ -47,7 +47,7 @@ export async function finishRent(data) {
   const client = new MongoClient(url);
   db = await client.connect(() => {
     db = client.db(dbname);
-    db.collection(collectionname).updateOne({ 'data.orderID' : data.rentID }, {$set: {'data.status': 'finished'}});
+    db.collection(collectionname).updateOne({ 'data.orderID' : data.data.orderID }, {$set: {'data.status': 'Finished'}});
     client.close();
   });
 }

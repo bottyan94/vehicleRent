@@ -3,10 +3,13 @@
   <td>Email</td>
   <td>Phone</td>
   <td>Address</td>
+  <td>Autó bérlés</td>
   <tr (keypress)="entity.id" *ngFor="let entity of obj">
     <td>{{entity.name.first}} {{entity.name.last}}</td>
     <td>{{entity.email}}</td>
     <td>{{entity.phone}}</td>
     <td>{{entity.address}}</td>
-  </tr>
+    <td><button class="btn-success" (click)="openRentModal(entity)"  >Bérlés!</button> </td>
+      </tr>
 </table>
+

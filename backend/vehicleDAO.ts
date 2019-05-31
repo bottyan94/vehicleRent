@@ -39,7 +39,7 @@ export async function finishRent(data) {
   const client = new MongoClient(url);
   db = await client.connect(() => {
     db = client.db(dbname);
-    db.collection(collectionname).updateOne({ id : data.vehicleID }, {$set: {status: 'Free'}});
+    db.collection(collectionname).updateOne({ id : data.data.vehicleID }, {$set: {status: 'Free'}});
     client.close();
   });
 }

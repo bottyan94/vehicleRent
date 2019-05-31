@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
+import {FormsModule, NgModel} from '@angular/forms'; // <-- NgModel lives here
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,10 +12,9 @@ import {ClientsComponent} from './clients/clients.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceService} from './service.service';
 import {VehicleComponent} from './vehicle/vehicle.component';
-import {MatButtonModule} from '@angular/material/button';
 import {OrdersComponent} from './orders/orders.component';
 import {AccordionConfigComponent} from './clients/accordion-config/accordion-config.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ClientsTableComponent} from './clients/accordion-config/clients-table/clients-table.component';
 import {CarsTableComponent} from './clients/accordion-config/cars-table/cars-table.component';
 
@@ -23,9 +22,19 @@ import {CarsTableComponent} from './clients/accordion-config/cars-table/cars-tab
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
+import { RentComponent } from './clients/rent/rent.component';
+import { FreecarsComponent } from './clients/accordion-config/freecars/freecars.component';
+import { ListComponentComponent } from './list-component/list-component.component';
+import { RegComponentComponent } from './reg-component/reg-component.component';
+import { RentComponentComponent } from './rent-component/rent-component.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path : 'list', component:ListComponentComponent},
+  {path : 'reg', component:RegComponentComponent},
+  {path : 'rent', component:RentComponentComponent},
+  {path : '**',redirectTo:'/list',pathMatch:'full'},
+];
 
 
 @NgModule({
@@ -37,6 +46,11 @@ const routes: Routes = [];
     AccordionConfigComponent,
     ClientsTableComponent,
     CarsTableComponent,
+    RentComponent,
+    FreecarsComponent,
+    ListComponentComponent,
+    RegComponentComponent,
+    RentComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +59,6 @@ const routes: Routes = [];
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule,
     BrowserModule,
     NgbModule,
     BrowserAnimationsModule,
@@ -53,8 +66,11 @@ const routes: Routes = [];
     InputTextModule,
     FormsModule
   ],
+  entryComponents: [
+    RentComponent
+  ],
   exports: [AccordionConfigComponent],
-  providers: [ServiceService],
+  providers: [ServiceService, NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule {

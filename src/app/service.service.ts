@@ -63,4 +63,29 @@ export class ServiceService {
         });
     });
   }
+
+  rent(obj) {
+    console.log(obj)
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/rent', obj)
+        .subscribe(res => {
+          resolve(res);
+          console.log(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  finishRent(entity) {
+    console.log(entity)
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:8080/finishrent', entity)
+        .subscribe(res => {
+          resolve(res);
+          console.log(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

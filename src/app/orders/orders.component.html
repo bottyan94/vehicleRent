@@ -1,16 +1,19 @@
-<p>
-  orders works!
-</p>
-<button class="mat-button" (click)="getAllOrders()">List Orders</button>
-<table class="table table-bordered  table-striped">
-  <td>OrderID</td>
-  <td>clientsId</td>
-  <td>vehicleID</td>
-  <td>status</td>
-  <tr (keypress)="entity.id" *ngFor="let entity of obj">
-    <td>{{entity.data.orderID}}</td>
-    <td>{{entity.data.clientsID}}</td>
-    <td>{{entity.data.vehicleID}}</td>
-    <td>{{entity.data.status}}</td>
-  </tr>
-</table>
+<div class="row text-center">
+  <div class="col">
+    <button class="btn-primary" (click)="getAllOrders()">Bérlések listázása</button>
+    <table class="table table-bordered  table-striped">
+      <td>OrderID</td>
+      <td>clientsId</td>
+      <td>vehicleID</td>
+      <td>status</td>
+      <td>Finish</td>
+      <tr (keypress)="entity.id" *ngFor="let entity of obj">
+        <td>{{entity.data.orderID}}</td>
+        <td>{{entity.data.clientsID}}</td>
+        <td>{{entity.data.vehicleID}}</td>
+        <td>{{entity.data.status}}</td>
+        <td><button class="btn-success" (click)="finish(entity)">Finish</button> </td>
+      </tr>
+    </table>
+  </div>
+</div>

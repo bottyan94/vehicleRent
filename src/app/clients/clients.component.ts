@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../service.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {RentComponent} from './rent/rent.component';
+import {UUID} from 'angular2-uuid';
 
 
 @Component({
@@ -9,7 +12,6 @@ import {ServiceService} from '../service.service';
 })
 export class ClientsComponent implements OnInit {
   display = false;
-  display1 = false;
   inputBody = {
     'id': '',
     'name': {
@@ -22,13 +24,7 @@ export class ClientsComponent implements OnInit {
     'address': '',
     'registered': ''
   };
-  inputBody2 = {
-    'id': '',
-    'type': '',
-    'year': 0,
-    'fuel': '',
-    'status': 'Free',
-  };
+
 
   constructor(private service: ServiceService) {
   }
@@ -38,30 +34,16 @@ export class ClientsComponent implements OnInit {
   }
 
   showDialog() {
-    if (this.display ===false) {
+    if (this.display === false) {
       this.display = true;
-    }
-    if (this.display === true) {
+    } else if (this.display === true) {
       this.display = false;
     }
   }
-
-  showDialogCar() {
-    if (this.display1 === false) {
-      this.display1 = true;
-    }
-    if (this.display1 === true) {
-      this.display1 = false;
-    }
-  }
-
   async addUser() {
+    this.inputBody.id = UUID.UUID();
     await this.service.regClients(this.inputBody);
-
   }
 
-  async addCar() {
-    console.log(this.inputBody);
-    await this.service.regCar(this.inputBody);
-  }
+
 }

@@ -1,4 +1,38 @@
-<p>
-  vehicle works!
-</p>
-
+<div class="row text-center p-3">
+  <div class="col">
+    <h1 class="display-6">Új jármű regisztrálása</h1>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col border shadow-lg">
+    <button class="btn-primary m-3" type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Show">
+      Add Car
+    </button>
+    <p-dialog class="border" [(visible)]="display" [modal]="true" [responsive]="true"
+              [style]="{width: '350px', minWidth: '200px'}" [minY]="70"
+              [maximizable]="true" [baseZIndex]="10000">
+      <div class="row">
+        <div class="col-5">Type:</div>
+        <div class="col-5">
+          <input class="w-100" type="text" pInputText [(ngModel)]="inputBody2.type"/></div>
+      </div>
+      <div class="row">
+        <div class="col-5"> Year:</div>
+        <div class="col-5">
+          <input class="w-100" type="number" pInputNumber [(ngModel)]="inputBody2.year"/></div>
+      </div>
+      <div class="row">
+        <div class="col-5"> Fuel:</div>
+        <div class="col-5">
+          <input class="w-100" type="text" pInputText [(ngModel)]="inputBody2.fuel"/></div>
+      </div>
+      <p-footer>
+        <button class="btn-success m-3" type="button" pButton icon="pi pi-check" (click)="addCar()" label="Yes">Yes
+        </button>
+        <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No"
+                class="btn-danger m-3">No
+        </button>
+      </p-footer>
+    </p-dialog>
+  </div>
+</div>
