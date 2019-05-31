@@ -13,7 +13,7 @@ export class VehicleComponent implements OnInit {
   inputBody2 = {
     'id': '',
     'type': '',
-    'year': 0,
+    'year': 2010,
     'fuel': '',
     'status': 'Free',
   };
@@ -35,5 +35,12 @@ export class VehicleComponent implements OnInit {
   async addCar() {
     this.inputBody2.id = UUID.UUID();
     await this.service.regCar(this.inputBody2);
+    this.inputBody2 = {
+      'id': '',
+      'type': '',
+      'year': 2010,
+      'fuel': '',
+      'status': 'Free',
+    };
   }
 }

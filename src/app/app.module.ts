@@ -27,6 +27,7 @@ import { FreecarsComponent } from './clients/accordion-config/freecars/freecars.
 import { ListComponentComponent } from './list-component/list-component.component';
 import { RegComponentComponent } from './reg-component/reg-component.component';
 import { RentComponentComponent } from './rent-component/rent-component.component';
+import { RentModalComponent } from './orders/rent-modal/rent-modal.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
     ListComponentComponent,
     RegComponentComponent,
     RentComponentComponent,
+    RentModalComponent,
   ],
   imports: [
     BrowserModule,

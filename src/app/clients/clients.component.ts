@@ -43,6 +43,18 @@ export class ClientsComponent implements OnInit {
   async addUser() {
     this.inputBody.id = UUID.UUID();
     await this.service.regClients(this.inputBody);
+    this.inputBody = {
+      'id': '',
+      'name': {
+        'first': '',
+        'last': '',
+      },
+      'age': 18,
+      'email': '',
+      'phone': '',
+      'address': '',
+      'registered': ''
+    };
   }
 
 

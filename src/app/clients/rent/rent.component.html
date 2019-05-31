@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <h1>{{entity.name.first}} {{entity.name.last}} </h1>
+  <h3>ID: {{entity.id}}</h3>
+  <h6>Válassz autót!</h6>
+  <app-freecars clientsID={{entity.id}} ></app-freecars>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+</div>

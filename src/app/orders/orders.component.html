@@ -1,17 +1,27 @@
 <div class="row text-center">
   <div class="col">
-    <button class="btn-primary" (click)="getAllOrders()">Bérlések listázása</button>
+    <button class="btn-primary m-1" (click)="getAllOrders()">Bérlések listázása</button>
+    <button class="btn-primary m-1" (click)="getAllActive()">Aktív rendelések</button>
     <table class="table table-bordered  table-striped">
       <td>OrderID</td>
       <td>clientsId</td>
       <td>vehicleID</td>
+      <td>day | km</td>
+      <td>crash</td>
       <td>status</td>
+      <td>price</td>
       <td>Finish</td>
       <tr (keypress)="entity.id" *ngFor="let entity of obj">
         <td>{{entity.data.orderID}}</td>
         <td>{{entity.data.clientsID}}</td>
         <td>{{entity.data.vehicleID}}</td>
+        <td>{{entity.data.day}} nap | {{entity.data.km}} km<br>
+          <input  class="w-25" value="day" type="number" pInputText [(ngModel)]="rentInfo.day"/>
+          <input class="w-25" value="km" type="number" pInputText [(ngModel)]="rentInfo.km"/>
+        </td>
+        <td>{{entity.data.crash}}</td>
         <td>{{entity.data.status}}</td>
+        <td>{{entity.data.price}} Ft</td>
         <td><button class="btn-success" (click)="finish(entity)">Finish</button> </td>
       </tr>
     </table>

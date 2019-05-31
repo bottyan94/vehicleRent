@@ -48,6 +48,9 @@ export async function finishRent(data) {
   db = await client.connect(() => {
     db = client.db(dbname);
     db.collection(collectionname).updateOne({ 'data.orderID' : data.data.orderID }, {$set: {'data.status': 'Finished'}});
+    db.collection(collectionname).updateOne({ 'data.orderID' : data.data.orderID }, {$set: {'data.day': data.data.day}});
+    db.collection(collectionname).updateOne({ 'data.orderID' : data.data.orderID }, {$set: {'data.km': data.data.km}});
+    db.collection(collectionname).updateOne({ 'data.orderID' : data.data.orderID }, {$set: {'data.price': data.data.price}});
     client.close();
   });
 }

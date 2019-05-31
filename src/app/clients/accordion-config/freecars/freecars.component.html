@@ -1,0 +1,14 @@
+<table class="table table-bordered  table-striped">
+  <td>Type</td>
+  <td>Year</td>
+  <td>Fuel</td>
+  <td>Status</td>
+  <td>Bérlés</td>
+  <tr (keypress)="entity.id" *ngFor="let entity of array">
+    <td>{{entity.type}}</td>
+    <td>{{entity.year}}</td>
+    <td>{{entity.fuel}}</td>
+    <td>{{entity.status}}</td>
+    <td><button class="btn-dark" (click)="rent(entity.id)">Bérlés</button></td>
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <h1>Befejezéshez meg kell adni a mennyi napot volt bérbe és a megtett km-t.</h1>
+  <input  class="w-25" value="day" type="number" pInputText [(ngModel)]="rentInfo.day"/>
+  <input class="w-25" value="km" type="number" pInputText [(ngModel)]="rentInfo.km"/>
+  <button class="btn-success" (click)="finish(entity)">Finish</button>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+</div>
